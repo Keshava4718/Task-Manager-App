@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Task Manager</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>TASK MANAGER</h1>
+    <p><i>Take Down Your Notes</i></p>
+  </header>
+
+  <main id="main">
+
+    <div id="input_div">
+      <input type="text" id="task_input" placeholder="Enter Task" autocomplete="off">
+
+      <button id="add_task">Add Task</button>
+    </div>
+
+    <section id="stat-cards">
+
+      <div id="sc-total">
+        <p><b>Total</b></p>
+        <p id="len">0</p>
+      </div>
+
+      <div id="sc-complete">
+        <p><b>Completed</b></p>
+        <p id="task_complete">0</p>
+      </div>
+
+      <div id="sc-rem">
+        <p><b>Remaining</b></p>
+        <p id="task_not_complete">0</p>
+      </div>
+
+    </section>
+
+    <section id="task_area">
+      <ul id="task_list"></ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
