@@ -1,3 +1,7 @@
+/* =================================
+   1. GLOBAL STYLES
+================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -10,59 +14,86 @@ body {
 
 body {
   overflow-x: hidden;
-  background-color: #dde5b6;
-  color: #3d352f;
+  background-color: var(--background);
+  color: var(--text);
   font-family: Arial, sans-serif;
   line-height: 1.5;
 }
 
+/* =================================
+   2. COLOR VARIABLES
+================================= */
+
 :root {
-  --cream: #f0ead2;
-  --sage: #dde5b6;
-  --olive: #adc178;
-  --brown: #a98467;
-  --dark-brown: #6c584c;
+  /* Main colors */
+  --background: #dcebfa;
+  --container: #ffffff;
+  --input-bg: #eff6ff;
+  --task-bg: #ffffff;
+  --completed-bg: #e0f2fe;
 
-  --primary: #526a8a;
-  --success: #52796f;
-  --warning: #c17c3a;
-  --danger: #b85c50;
+  /* Blue shades */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --navy: #1e40af;
+  --light-blue: #bfdbfe;
 
-  --text: #3d352f;
-  --muted: #6c584c;
-  --border: #c4b49a;
+  /* Action colors */
+  --success: #16856b;
+  --warning: #d99a32;
+  --danger: #dc5555;
+
+  /* Text and borders */
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #cbddee;
   --white: #ffffff;
 
-  --shadow: 0 3px 10px rgba(60, 50, 40, 0.1);
-  --radius: 8px;
+  /* Effects */
+  --shadow: 0 4px 14px rgba(30, 64, 175, 0.08);
+  --radius: 10px;
 }
+
+/* =================================
+   3. HEADER
+================================= */
 
 header {
   text-align: center;
-  color: var(--dark-brown);
+  color: var(--navy);
   margin: 20px 0;
 }
 
 header h1 {
   margin-bottom: 0;
+  letter-spacing: 1px;
 }
 
 header p {
   margin-top: 5px;
+  color: var(--muted);
 }
+
+/* =================================
+   4. MAIN CONTAINER
+================================= */
 
 #main {
   width: 90%;
   max-width: 900px;
   margin: 20px auto;
-  padding: 15px;
+  padding: 18px;
 
-  background-color: var(--cream);
+  background-color: var(--container);
   border: 1px solid var(--border);
   border-radius: 12px;
 
   box-shadow: var(--shadow);
 }
+
+/* =================================
+   5. INPUT SECTION
+================================= */
 
 #input_div {
   width: 100%;
@@ -71,7 +102,7 @@ header p {
   gap: 8px;
   padding: 8px;
 
-  background-color: #e7e0c7;
+  background-color: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -79,11 +110,11 @@ header p {
 #input_div input {
   flex: 1;
   min-width: 0;
-  height: 40px;
+  height: 42px;
   padding: 8px 12px;
 
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 7px;
   outline: none;
 
   background-color: var(--white);
@@ -91,20 +122,24 @@ header p {
   font-size: 15px;
 }
 
+#input_div input::placeholder {
+  color: #94a3b8;
+}
+
 #input_div input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(82, 106, 138, 0.15);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 #input_div button {
   flex-shrink: 0;
-  height: 40px;
-  padding: 0 16px;
+  height: 42px;
+  padding: 0 18px;
 
   border: none;
-  border-radius: 6px;
+  border-radius: 7px;
 
-  background-color: var(--dark-brown);
+  background-color: var(--primary);
   color: var(--white);
   font-weight: 600;
 
@@ -113,19 +148,23 @@ header p {
 }
 
 #input_div button:hover {
-  background-color: #554438;
+  background-color: var(--primary-hover);
 }
 
 #input_div button:active {
   transform: scale(0.97);
 }
 
+/* =================================
+   6. STATISTICS CARDS
+================================= */
+
 #stat-cards {
   width: 100%;
-  padding-top: 12px;
+  padding-top: 14px;
 
   display: flex;
-  gap: 10px;
+  gap: 12px;
 
   margin-bottom: 5px;
 }
@@ -139,33 +178,51 @@ header p {
   justify-content: center;
 
   margin: 0;
-  padding: 10px 5px;
+  padding: 12px 5px;
 
-  border: 1px solid;
-  border-radius: 7px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
 
-  box-shadow: 0 1px 3px rgba(60, 50, 40, 0.06);
+  box-shadow: 0 2px 5px rgba(30, 64, 175, 0.05);
+
+  transition: 0.2s;
+}
+
+#stat-cards > div:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 #stat-cards p {
   margin: 0;
   padding: 3px;
+  color: var(--text);
 }
+
+/* Total */
 
 #sc-total {
-  background-color: #e8e1c9;
-  border-color: #c4b49a;
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
 }
+
+/* Completed */
 
 #sc-complete {
-  background-color: #dce9d8;
-  border-color: #8bae91;
+  background-color: #e0f2fe;
+  border-color: #a5d8f3;
 }
 
+/* Remaining */
+
 #sc-rem {
-  background-color: #f3e3cc;
-  border-color: #d9b78b;
+  background-color: #e8eeff;
+  border-color: #c7d2fe;
 }
+
+/* =================================
+   7. TASK AREA
+================================= */
 
 #task_area {
   display: none;
@@ -173,7 +230,7 @@ header p {
   margin-top: 15px;
   padding: 5px;
 
-  background-color: #e7e0c7;
+  background-color: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -184,6 +241,8 @@ ul {
   margin: 0;
 }
 
+/* Individual task */
+
 li {
   display: flex;
   justify-content: space-between;
@@ -193,22 +252,27 @@ li {
   min-width: 0;
 
   margin: 8px 0;
-  padding: 10px;
+  padding: 11px;
 
-  background-color: var(--cream);
+  background-color: var(--task-bg);
   border: 1px solid var(--border);
-  border-radius: 7px;
+  border-radius: 8px;
 
   color: var(--text);
 
-  box-shadow: 0 1px 3px rgba(60, 50, 40, 0.06);
+  box-shadow: 0 1px 4px rgba(30, 64, 175, 0.05);
 
   transition: 0.2s;
 }
 
 li:hover {
+  border-color: var(--light-blue);
   box-shadow: var(--shadow);
 }
+
+/* =================================
+   8. TASK TEXT
+================================= */
 
 .task-name {
   flex: 1;
@@ -216,6 +280,10 @@ li:hover {
   overflow-wrap: anywhere;
   color: var(--text);
 }
+
+/* =================================
+   9. TASK BUTTONS
+================================= */
 
 .btn_set {
   display: flex;
@@ -232,7 +300,7 @@ li:hover {
   padding: 7px 11px;
 
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
 
   color: var(--white);
   font-size: 15px;
@@ -250,38 +318,58 @@ li:hover {
   transform: scale(0.95);
 }
 
+/* Complete */
+
 .complete-btn {
   background-color: var(--success);
 }
+
+/* Undo */
 
 .undo-btn {
   background-color: var(--warning);
 }
 
+/* Delete */
+
 .delete-btn {
   background-color: var(--danger);
 }
 
+/* Disabled buttons */
+
 .btn_set button:disabled {
-  opacity: 0.45;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
+/* =================================
+   10. TASK COMPLETION
+================================= */
+
 li.completed {
-  background-color: #e4ebd2;
-  border-color: #8bae91;
+  background-color: var(--completed-bg);
+  border-color: #7dd3fc;
 }
 
 .task-name.cut {
-  color: #6c806d;
+  color: var(--muted);
   text-decoration: line-through;
   opacity: 0.8;
 }
+
+/* =================================
+   11. ACCESSIBILITY
+================================= */
 
 button:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 3px;
 }
+
+/* =================================
+   12. RESPONSIVE DESIGN
+================================= */
 
 @media (max-width: 600px) {
   #main {
@@ -291,7 +379,7 @@ button:focus-visible {
   }
 
   #stat-cards {
-    gap: 5px;
+    gap: 6px;
   }
 
   li {
